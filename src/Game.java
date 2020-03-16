@@ -9,7 +9,7 @@ public class Game {
 
     Game(){
         this.room = 0;
-        npc = new ArrayList<NPC>();
+        npc = new ArrayList<>();
         npc.add(new NPC("Mother", 30, 0));
         rooms = new Room[]{
                 new Room(RoomName.MomsHouse, new int[]{1}, new Object[]{}),
@@ -35,7 +35,7 @@ public class Game {
         System.out.println("F*ck, don't creep up on me like that. *Ugh* I swear to god, every fucking time. " +
                 "Hello and welcome, what is your name?");
 
-        String name = "";
+        String name;
         while(true) {
             String temp = scanner.nextLine();
             if (npc.get(0).getAnnoyance() <= 1) {
@@ -167,10 +167,10 @@ public class Game {
         else if(ans.startsWith("move")){
             if(ans.length() > 5) {
                 try{
-                    move(Integer.parseInt(ans.substring(5)));;
+                    move(Integer.parseInt(ans.substring(5)));
                 }
                 catch(NumberFormatException e){
-                    System.out.println();
+                    System.out.println("That's not a place");
                 }
             }
         }
