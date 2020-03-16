@@ -21,7 +21,7 @@ public class Game {
                         }, 0),
 
                         new Object("Grass", new Pokemon[]{
-                                new Pokemon("2002 Honda Civic", 1, PokemonType.Water, 150),
+                                new Pokemon("2002 Honda Civic", 1, PokemonType.Fire, 150),
                         }, 0)
 
                 })
