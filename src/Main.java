@@ -4,8 +4,8 @@ public class Main {
 
         Game game = new Game();
 
-        game.start();
-        //game.quickStart();
+        //game.start();
+        game.quickStart();
 
         while(true) {
             game.go();

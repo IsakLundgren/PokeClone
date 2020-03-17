@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.Scanner;
+
 public class Room {
 
     protected RoomName name;
@@ -27,8 +30,38 @@ public class Room {
 
     public void inspect(Player player, int objectNumber){
         try{
-            //TODO Make inner loop for inspection. Fighting etc.
-            System.out.println(name + obj[objectNumber].getName() + player.getName());
+            try{
+                int objPokeIndex = obj[objectNumber].inspect();
+                Pokemon opponent = new Pokemon(obj[objectNumber].getPresentPokemon().get(objPokeIndex));
+                System.out.println("Pick your pokemon:");
+                player.printPrison();
+                if(player.getPrison().size() != 0) {
+                    while (true) {
+                        Scanner scan = new Scanner(System.in);
+                        try {
+                            int i = Integer.parseInt(scan.nextLine());
+                            try{
+                                boolean outcome = opponent.fight(player, i);
+                                if(outcome){
+                                    obj[objectNumber].getPresentPokemon().remove(objPokeIndex);
+                                }
+                                break;
+                            }
+                            catch(ArrayIndexOutOfBoundsException e){
+                                System.out.println("Yeah, there's no pokemon in that slot.");
+                            }
+                        } catch (NumberFormatException e) {
+                            System.out.println("Well, that's no number, now is it?");
+                        }
+                    }
+                }
+                else{
+                    opponent.fight(player);
+                }
+            }
+            catch (NullPointerException e){
+                System.out.println("You find nothing.");
+            }
         }
         catch(ArrayIndexOutOfBoundsException e){
             System.out.println("No, that can't be right.");

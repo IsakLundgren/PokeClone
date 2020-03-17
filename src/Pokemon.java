@@ -19,4 +19,14 @@ public class Pokemon extends Entity {
     public PokemonType getType(){
         return type;
     }
+
+    //TODO make fights code
+    public boolean fight(Player player){ //true if win
+        System.out.println("It worked!");
+        return false;
+    }
+
+    public boolean fight(Player player, int pI){ //prisonIndex, true if win
+        return false;
+    }
 }

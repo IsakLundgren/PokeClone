@@ -15,14 +15,14 @@ public class Game {
                 new Room(RoomName.MomsHouse, new int[]{1}, new Object[]{}),
                 new Room(RoomName.MomsFrontYard, new int[]{0}, new Object[]{
 
-                        new Object("Grass", new Pokemon[]{
+                        new Object("Grass", new ArrayList<Pokemon>(Arrays.asList(
                                 new Pokemon("Wabba", 1, PokemonType.Water, 70),
                                 new Pokemon("RIP snorting", 1, PokemonType.Sand, 90)
-                        }, 0),
+                        )), 0),
 
-                        new Object("Rock", new Pokemon[]{
-                                new Pokemon("2002 Honda Civic", 1, PokemonType.Fire, 150),
-                        }, 0)
+                        new Object("Rock", new ArrayList<Pokemon>(Arrays.asList(
+                                new Pokemon("2002 Honda Civic", 1, PokemonType.Fire, 150)
+                                )), 0)
 
                 })
         };
@@ -160,12 +160,9 @@ public class Game {
         Scanner scan = new Scanner(System.in);
         String ans = scan.nextLine();
         if(ans.equals("help")){
-            System.out.println("Here's your available options: \n");
-            System.out.println("room: shows the current room you're in.");
-            rooms[room].printOptions();
-        }
-        else if(ans.equals("room")){
             System.out.println("You're currently in " + rooms[room].getName() + ".");
+            System.out.println("Here's your available options: \n");
+            rooms[room].printOptions();
         }
         else if(ans.startsWith("move")){
             if(ans.length() > 4) {

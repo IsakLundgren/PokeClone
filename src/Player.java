@@ -35,6 +35,22 @@ public class Player extends Entity {
         }
     }
 
+    public void printPrison(){
+        if(prison.size() != 0) {
+            for (int i = 0; i < prison.size(); i++) {
+                System.out.println(i + ". " + prison.get(i).getName() + ": Level " + prison.get(i).getLevel() +
+                        ", " + prison.get(i).getType() + ".");
+            }
+        }
+        else{
+            System.out.println("You have no pokemon, fight yourself, dumb cunt!");
+        }
+    }
+
+    public ArrayList<Pokemon> getPrison() {
+        return prison;
+    }
+
     public void addPokemon(Pokemon pokemon){
         prison.add(new Pokemon(pokemon));
     }
