@@ -20,7 +20,7 @@ public class Game {
                                 new Pokemon("RIP snorting", 1, PokemonType.Sand, 90)
                         }, 0),
 
-                        new Object("Grass", new Pokemon[]{
+                        new Object("Rock", new Pokemon[]{
                                 new Pokemon("2002 Honda Civic", 1, PokemonType.Fire, 150),
                         }, 0)
 
@@ -131,6 +131,10 @@ public class Game {
         System.out.println("You are now outside!");
     }
 
+    public void quickStart(){
+        player = new Player("Default", 1);
+    }
+
     private void move(int designation){
         boolean check = false;
         for(int i = 0; i < rooms[room].getAccess().length; i++){
@@ -157,20 +161,32 @@ public class Game {
         String ans = scan.nextLine();
         if(ans.equals("help")){
             System.out.println("Here's your available options: \n");
-            System.out.println("room: shows the current room you're in");
-            System.out.println("move + #: move to room # (integer)");
+            System.out.println("room: shows the current room you're in.");
             rooms[room].printOptions();
         }
         else if(ans.equals("room")){
             System.out.println("You're currently in " + rooms[room].getName() + ".");
         }
         else if(ans.startsWith("move")){
-            if(ans.length() > 5) {
+            if(ans.length() > 4) {
                 try{
-                    move(Integer.parseInt(ans.substring(5)));
+                    move(Integer.parseInt(ans.substring(4)));
                 }
                 catch(NumberFormatException e){
                     System.out.println("That's not a place");
+                }
+            }
+        }
+        else if(ans.startsWith("inspect")){
+            if(rooms[room].getObj().length == 0){
+                System.out.println("There's nothing to inspect here.");
+            }
+            else if(ans.length() > 7) {
+                try{
+                    rooms[room].inspect(player, Integer.parseInt(ans.substring(7)));
+                }
+                catch(NumberFormatException e){
+                    System.out.println("That's not a thing" + ans.substring(7));
                 }
             }
         }

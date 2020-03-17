@@ -30,6 +30,14 @@ public abstract class Entity {
         return exp;
     }
 
+    public int getBaseHealth() {
+        return baseHealth;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
     public void decreaseLevel(){
         level--;
     }

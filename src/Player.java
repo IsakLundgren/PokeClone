@@ -35,8 +35,17 @@ public class Player extends Entity {
         }
     }
 
-    public void kidnap(Pokemon pokemon){
+    public void addPokemon(Pokemon pokemon){
+        prison.add(new Pokemon(pokemon));
+    }
 
+    public void removePokemon(int slot){
+        try{
+            prison.remove(slot);
+        }
+        catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("There's no pokemon in slot " + slot + ".");
+        }
     }
 
     public void update() {

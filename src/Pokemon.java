@@ -8,4 +8,15 @@ public class Pokemon extends Entity {
         this.health = baseHealth;
         this.baseHealth = baseHealth;
     }
+
+    Pokemon(Pokemon pokemon){
+       super(pokemon.getName(), pokemon.getLevel());
+       this.type = pokemon.getType();
+       this.health = pokemon.getHealth();
+       this.baseHealth = pokemon.getBaseHealth();
+    }
+
+    public PokemonType getType(){
+        return type;
+    }
 }
