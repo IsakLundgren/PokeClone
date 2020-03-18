@@ -18,11 +18,11 @@ public class Game {
                         new Object("Grass", new ArrayList<Pokemon>(Arrays.asList(
                                 new Pokemon("Wabba", 1, PokemonType.Water, 70),
                                 new Pokemon("RIP snorting", 1, PokemonType.Sand, 90)
-                        )), 0),
+                        )), 50),
 
                         new Object("Rock", new ArrayList<Pokemon>(Arrays.asList(
                                 new Pokemon("2002 Honda Civic", 1, PokemonType.Fire, 150)
-                                )), 0)
+                                )), 50)
 
                 })
         };
@@ -162,6 +162,7 @@ public class Game {
         if(ans.equals("help")){
             System.out.println("You're currently in " + rooms[room].getName() + ".");
             System.out.println("Here's your available options: \n");
+            //TODO add checkInventory
             rooms[room].printOptions();
         }
         else if(ans.startsWith("move")){

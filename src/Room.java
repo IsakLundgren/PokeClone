@@ -44,6 +44,7 @@ public class Room {
                                 boolean outcome = opponent.fight(player, i);
                                 if(outcome){
                                     obj[objectNumber].getPresentPokemon().remove(objPokeIndex);
+                                    //TODO store won over pokemon in prison
                                 }
                                 break;
                             }
@@ -59,8 +60,8 @@ public class Room {
                     opponent.fight(player);
                 }
             }
-            catch (NullPointerException e){
-                System.out.println("You find nothing.");
+            catch (IndexOutOfBoundsException e){
+                System.out.println("Oh wow, it's nothing! You suck!");
             }
         }
         catch(ArrayIndexOutOfBoundsException e){

@@ -38,6 +38,10 @@ public abstract class Entity {
         return health;
     }
 
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
     public void decreaseLevel(){
         level--;
     }

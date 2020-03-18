@@ -22,11 +22,11 @@ public class Object {
     public int inspect(){
         double rng = Math.random() * (presentPokemon.size() + rarity);
         if((int) rng < rarity){
-            System.out.println("Oh wow, it's nothing! You suck!");
             return -1;
         }
         else{
-            System.out.println("time to get your ass kicked");
+            System.out.println(presentPokemon.get((int) rng - rarity).getName() + " jumps you.");
+            System.out.println("Time to get your ass kicked");
             return (int) rng - rarity;
         }
     }

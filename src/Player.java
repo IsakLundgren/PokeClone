@@ -66,7 +66,16 @@ public class Player extends Entity {
 
     public void update() {
         if(isDed()){
+            System.out.println("HAH! YOU DIED! YOU SUCK!");
             System.exit(1);
+        }
+    }
+
+    public void kick(Entity opponent){
+        System.out.println("You kick " + opponent.getName() + " in the nuts for " + level * 12 + " hp.");
+        opponent.setHealth(opponent.getHealth() - level * 12);
+        if(opponent.getHealth() < 0){
+            opponent.setHealth(0);
         }
     }
 }
