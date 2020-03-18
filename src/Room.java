@@ -32,7 +32,7 @@ public class Room {
         try{
             try{
                 int objPokeIndex = obj[objectNumber].inspect();
-                Pokemon opponent = new Pokemon(obj[objectNumber].getPresentPokemon().get(objPokeIndex));
+                Pokemon opponent = obj[objectNumber].getPresentPokemon().get(objPokeIndex);
                 System.out.println("Pick your pokemon:");
                 player.printPrison();
                 if(player.getPrison().size() != 0) {
@@ -45,8 +45,8 @@ public class Room {
                                 if(outcome){
                                     obj[objectNumber].getPresentPokemon().remove(objPokeIndex);
                                     //TODO store won over pokemon in prison
+                                    break;
                                 }
-                                break;
                             }
                             catch(ArrayIndexOutOfBoundsException e){
                                 System.out.println("Yeah, there's no pokemon in that slot.");
@@ -57,7 +57,10 @@ public class Room {
                     }
                 }
                 else{
-                    opponent.fight(player);
+                    if(opponent.fight(player)){
+                        obj[objectNumber].getPresentPokemon().remove(objPokeIndex);
+                        //TODO store won over pokemon in prison
+                    }
                 }
             }
             catch (IndexOutOfBoundsException e){

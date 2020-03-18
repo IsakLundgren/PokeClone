@@ -53,7 +53,7 @@ public class Pokemon extends Entity {
                 String ans = scanner.nextLine();
                 try {
                     if(Integer.parseInt(ans) == 0){
-                        System.out.println("While you run like a bitch, " + getName() + "manages to hit you");
+                        System.out.println("While you run like a bitch, " + getName() + " manages to hit you.");
                         this.attack(player);
                         return false;
                     }

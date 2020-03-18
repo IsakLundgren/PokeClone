@@ -18,11 +18,11 @@ public class Game {
                         new Object("Grass", new ArrayList<Pokemon>(Arrays.asList(
                                 new Pokemon("Wabba", 1, PokemonType.Water, 70),
                                 new Pokemon("RIP snorting", 1, PokemonType.Sand, 90)
-                        )), 50),
+                        )), 0),
 
                         new Object("Rock", new ArrayList<Pokemon>(Arrays.asList(
-                                new Pokemon("2002 Honda Civic", 1, PokemonType.Fire, 150)
-                                )), 50)
+                                new Pokemon("2002 Honda Civic", 2, PokemonType.Fire, 150)
+                                )), 2)
 
                 })
         };
@@ -132,7 +132,7 @@ public class Game {
     }
 
     public void quickStart(){
-        player = new Player("Default", 1);
+        player = new Player("Default", 100);
     }
 
     private void move(int designation){
