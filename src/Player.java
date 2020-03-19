@@ -38,8 +38,14 @@ public class Player extends Entity {
     public void printPrison(){
         if(prison.size() != 0) {
             for (int i = 0; i < prison.size(); i++) {
-                System.out.println(i + ". " + prison.get(i).getName() + ": Level " + prison.get(i).getLevel() +
-                        ", " + prison.get(i).getType() + ".");
+                if(prison.get(i).getHealth() == 0){
+                    System.out.println(i + ". " + prison.get(i).getName() + ": Level " + prison.get(i).getLevel() +
+                            ", " + prison.get(i).getType() + " type. (Dead)");
+                }
+                else {
+                    System.out.println(i + ". " + prison.get(i).getName() + ": Level " + prison.get(i).getLevel() +
+                            ", " + prison.get(i).getType() + " type.");
+                }
             }
         }
         else{

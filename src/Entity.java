@@ -42,6 +42,11 @@ public abstract class Entity {
         this.health = health;
     }
 
+    public void gainExp(Entity opponent){
+        exp += opponent.getLevel() * 50;
+        System.out.println(getName() + " has gained " + opponent.getLevel() * 50 + " exp.");
+    }
+
     public void decreaseLevel(){
         level--;
     }
@@ -53,6 +58,7 @@ public abstract class Entity {
     public void checkLevelUp() {
         if(exp >= level * 100){
             increaseLevel();
+            System.out.println(getName() + " has leveled up! They're now level " + getLevel() + ".");
             exp = 0;
         }
     }

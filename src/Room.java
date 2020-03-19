@@ -30,36 +30,40 @@ public class Room {
 
     public void inspect(Player player, int objectNumber){
         try{
-            try{
+            try {
                 int objPokeIndex = obj[objectNumber].inspect();
                 Pokemon opponent = obj[objectNumber].getPresentPokemon().get(objPokeIndex);
-                System.out.println("Pick your pokemon:");
-                player.printPrison();
-                if(player.getPrison().size() != 0) {
-                    while (true) {
+                while (true) {
+                    System.out.println("Pick your pokemon:");
+                    player.printPrison();
+                    if (player.getPrison().size() != 0) {
                         Scanner scan = new Scanner(System.in);
                         try {
                             int i = Integer.parseInt(scan.nextLine());
-                            try{
+                            try {
                                 boolean outcome = opponent.fight(player, i);
-                                if(outcome){
+                                if (outcome) {
+                                    player.addPokemon(new Pokemon(obj[objectNumber].getPresentPokemon().get(objPokeIndex)));
                                     obj[objectNumber].getPresentPokemon().remove(objPokeIndex);
-                                    //TODO store won over pokemon in prison
                                     break;
                                 }
-                            }
-                            catch(ArrayIndexOutOfBoundsException e){
+                                else{
+                                    System.out.println("Just as expected, " + player.getPrison().get(i).getName() + " has died." +
+                                            " Now pick something else that will die!");
+                                }
+                            } catch (ArrayIndexOutOfBoundsException e) {
                                 System.out.println("Yeah, there's no pokemon in that slot.");
                             }
                         } catch (NumberFormatException e) {
                             System.out.println("Well, that's no number, now is it?");
                         }
                     }
-                }
-                else{
-                    if(opponent.fight(player)){
-                        obj[objectNumber].getPresentPokemon().remove(objPokeIndex);
-                        //TODO store won over pokemon in prison
+                    else {
+                        if (opponent.fight(player)) {
+                            player.addPokemon(new Pokemon(obj[objectNumber].getPresentPokemon().get(objPokeIndex)));
+                            obj[objectNumber].getPresentPokemon().remove(objPokeIndex);
+                            break;
+                        }
                     }
                 }
             }

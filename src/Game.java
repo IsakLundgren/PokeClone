@@ -133,6 +133,7 @@ public class Game {
 
     public void quickStart(){
         player = new Player("Default", 100);
+        player.addPokemon(new Pokemon("2002 Honda Civic", 2, PokemonType.Fire, 150));
     }
 
     private void move(int designation){
