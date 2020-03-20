@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 //TODO Test making pokemon abstract, have "Ability 1, ability 2 etc"
-public class Pokemon extends Entity {
+public abstract class Pokemon extends Entity {
 
     PokemonType type;
 
@@ -30,6 +30,11 @@ public class Pokemon extends Entity {
             opponent.setHealth(0);
         }
     }
+
+    public abstract void ability1(Pokemon opponent);
+    public abstract void ability2(Pokemon opponent);
+    public abstract void ability3(Pokemon opponent);
+    public abstract void ability4(Pokemon opponent);
 
     public void attack(Pokemon opponent){
         System.out.println(getName() + " strikes " + opponent.getName() + " for " + level * 10 + " hp.");
