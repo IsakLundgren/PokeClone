@@ -21,7 +21,7 @@ public class Game {
                         )), 0),
 
                         new Object("Rock", new ArrayList<Pokemon>(Arrays.asList(
-                                new Pokemon("2002 Honda Civic", 2, PokemonType.Fire, 150)
+                                new Honda(2, 150, 1)
                                 )), 2)
 
                 })
@@ -133,7 +133,7 @@ public class Game {
 
     public void quickStart(){
         player = new Player("Default", 100);
-        player.addPokemon(new Pokemon("2002 Honda Civic", 2, PokemonType.Fire, 150));
+        player.addPokemon(new Honda(2, 150, 1));
     }
 
     private void move(int designation){

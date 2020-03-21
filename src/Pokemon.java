@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
-//TODO Test making pokemon abstract, have "Ability 1, ability 2 etc"
-public abstract class Pokemon extends Entity {
+public class Pokemon extends Entity {
 
     PokemonType type;
 
@@ -31,10 +30,25 @@ public abstract class Pokemon extends Entity {
         }
     }
 
-    public abstract void ability1(Pokemon opponent);
-    public abstract void ability2(Pokemon opponent);
-    public abstract void ability3(Pokemon opponent);
-    public abstract void ability4(Pokemon opponent);
+    public void printAbilities(){
+        System.out.println("1. Attack the lil shit");
+    }
+
+    public void ability1(Pokemon opponent){
+        System.out.println("You did nothing, you cuck");
+    }
+
+    public void ability2(Pokemon opponent){
+        System.out.println("You did nothing, you cuck");
+    }
+
+    public void ability3(Pokemon opponent){
+        System.out.println("You did nothing, you cuck");
+    }
+
+    public void ability4(Pokemon opponent){
+        System.out.println("You did nothing, you cuck");
+    }
 
     public void attack(Pokemon opponent){
         System.out.println(getName() + " strikes " + opponent.getName() + " for " + level * 10 + " hp.");
